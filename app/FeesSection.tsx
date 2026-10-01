@@ -41,7 +41,34 @@ export default function FeesSection() {
           </p>
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-3xl border border-slate-100 shadow-sm">
+        <div className="mt-12 grid gap-4 md:hidden">
+          {fees.map((row) => (
+            <div
+              key={row.id}
+              className="rounded-2xl border border-slate-100 bg-white shadow-sm overflow-hidden"
+            >
+              <div className="bg-gradient-to-r from-orange-500 to-pink-500 px-4 py-3 font-semibold text-white">
+                {row.class_name}
+              </div>
+              <dl className="divide-y divide-slate-100 text-sm">
+                <div className="flex justify-between gap-4 px-4 py-3">
+                  <dt className="text-slate-500">Admission Fee</dt>
+                  <dd className="text-slate-700 text-right">{row.admission_fee}</dd>
+                </div>
+                <div className="flex justify-between gap-4 px-4 py-3">
+                  <dt className="text-slate-500">Tuition Fee (Annual)</dt>
+                  <dd className="text-slate-700 text-right">{row.tuition_fee}</dd>
+                </div>
+                <div className="flex justify-between gap-4 px-4 py-3 bg-orange-50/60">
+                  <dt className="font-semibold text-slate-700">Total (First Year)</dt>
+                  <dd className="font-semibold text-orange-600 text-right">{row.total_fee}</dd>
+                </div>
+              </dl>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12 hidden md:block overflow-hidden rounded-3xl border border-slate-100 shadow-sm">
           <table className="w-full text-left text-sm">
             <thead>
               <tr className="bg-gradient-to-r from-orange-500 to-pink-500 text-white">
